@@ -34,11 +34,10 @@ export async function getStaticProps({ params }) {
 }
 
 const Post = ({ post }) => {
-    console.log(post)
     return (
         <div>
             <h1>{post.fields.title}</h1>
-            <div>{documentToReactComponents(post.fields.content, {
+            <div>{documentToReactComponents( post.fields.body, {
                 renderNode: {
                     [BLOCKS.EMBEDDED_ASSET] : node => (
                         <Image
