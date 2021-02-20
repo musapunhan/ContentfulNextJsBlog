@@ -38,7 +38,7 @@ const Post = ({ post }) => {
     return (
         <div>
             <h1>{post.fields.title}</h1>
-            <div>{documentToReactComponents(post.fields.body, {
+            <div>{documentToReactComponents(post.fields.content, {
                 renderNode: {
                     [BLOCKS.EMBEDDED_ASSET] : node => (
                         <Image
