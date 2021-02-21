@@ -37,7 +37,12 @@ const Post = ({ post }) => {
     return (
         <div>
             <h1>{post.fields.title}</h1>
-            <div>{documentToReactComponents( post.fields.content, {
+            {/*
+             added 'post &&' here to see if post exists and then access 'fields'
+             during Vercel deployment to avoid the error:
+             Unhandled error during request: TypeError: Cannot read property 'fields' of undefined
+              */}
+            <div>{post && documentToReactComponents( post.fields.body, {
                 renderNode: {
                     [BLOCKS.EMBEDDED_ASSET] : node => (
                         <Image
